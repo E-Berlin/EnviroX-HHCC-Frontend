@@ -28,7 +28,7 @@ async function fetchLocationName(latitude, longitude, locationInput) {
     const lat = latitude;
     const lng = longitude;
 
-    const response = await fetch("http://192.168.60.231:5000/get_location", {
+    const response = await fetch("https://envirox-hhcc-backend.onrender.com/get_location", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ lat: lat, lng: lng })

@@ -19,7 +19,7 @@ function setLocationFromQuery() {
 }
 
 async function fetchWaterSituation(location) {
-    const response_data = await fetch("http://192.168.60.231:5000/get_quality", {
+    const response_data = await fetch("https://envirox-hhcc-backend.onrender.com/get_quality", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ city: location })
@@ -28,7 +28,7 @@ async function fetchWaterSituation(location) {
     const enviro_data = await response_data.json();
 
     // 发送 POST 请求到后端
-    const response = await fetch('http://192.168.60.231:5000/analyze', {
+    const response = await fetch('https://envirox-hhcc-backend.onrender.com/analyze', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
