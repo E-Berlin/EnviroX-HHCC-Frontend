@@ -6,8 +6,8 @@ body {
     /* 清除默认外边距 */
     padding: 0;
     /* 清除默认内边距 */
-    background-color: #f5f5f5;
-    /* 浅灰背景 */
+    background-color: #f0efe9;
+    /* 浅棕背景 */
     color: #111111;
     /* 文字颜色深黑 */
     display: flex;
@@ -60,7 +60,16 @@ h1 {
 h2 {
     font-size: 1.5rem;
     /* 字号 */
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    /* 底部间距 */
+    color: #333333;
+    /* 深灰文字 */
+}
+
+#location {
+    font-size: 1.2rem;
+    /* 字号 */
+    margin-bottom: 20px;
     /* 底部间距 */
     color: #333333;
     /* 深灰文字 */
@@ -157,4 +166,64 @@ footer {
     /* 黑色 */
     text-shadow: 0.3px 0.3px 0.3px #bbb;
     /* 微阴影增加立体感 */
+}
+
+.tab-buttons {
+    text-align: center;
+    /* 居中 */
+}
+
+.tab-buttons button {
+    margin: 0 10px;
+    /* 左右间距 10px，可调整 */
+    padding: 10px 20px;
+    /* 内边距让按钮更舒服 */
+    border-radius: 6px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 1px;
+    /* 顶部间距 */
+}
+
+.tab-buttons button:hover {
+    background: #555;
+}
+
+.tab-content {
+    display: none;
+    /* 默认不显示 */
+    margin-top: 15px;
+    padding: 10px;
+    white-space: pre-wrap;
+    /* 保留换行 */
+    font-family: "Arial", sans-serif;
+    /* 字体 */
+    color: #262626;
+    /* 深灰文字 */
+    font-size: 18px;
+    /* 字号 */
+    line-height: 1.6;
+    /* 行高，舒适阅读 */
+    word-wrap: break-word;
+    /* 防止长词撑开 */
+    margin: 0;
+    /* 外边距清零 */
+}
+
+.tab-content.active {
+    display: block;
+    /* 只有 active 的才显示 */
+}
+
+#mountain-canvas {
+    position: fixed;
+    /* 固定位置，不占文档流 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* 放到最底层 */
 }

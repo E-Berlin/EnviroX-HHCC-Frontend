@@ -80,11 +80,81 @@ function navigateToSecondPage() {
     window.location.href = `Page_2.html?location=${encodedLocation}`;
 }
 
-function navigateToThirdPage() {
-    const city = localStorage.getItem("city");
-    const encodedCity = encodeURIComponent(city);
-    window.location.href = `Page_3.html?city=${encodedCity}`;
+// ================== 动态背景（山 + 云） ==================
+const canvas = document.getElementById("mountain-canvas");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+let t = 0;
+
+// 初始化一些云
+const clouds = [];
+for (let i = 0; i < 5; i++) {
+    clouds.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * 150 + 30, // 高度范围
+        speed: Math.random() * 0.3 + 0.2,
+        size: Math.random() * 40 + 40
+    });
+}
+
+function drawCloud(cloud) {
+    ctx.beginPath();
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    for (let i = 0; i < 5; i++) {
+        let offsetX = Math.cos(i) * cloud.size * 0.6;
+        let offsetY = Math.sin(i) * cloud.size * 0.2;
+        ctx.ellipse(cloud.x + offsetX, cloud.y + offsetY, cloud.size, cloud.size * 0.6, 0, 0, Math.PI * 2);
+    }
+    ctx.fill();
+}
+
+function drawMountains() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 绘制云
+    clouds.forEach(cloud => {
+        drawCloud(cloud);
+        cloud.x += cloud.speed;
+        if (cloud.x - cloud.size > canvas.width) {
+            cloud.x = -cloud.size;
+            cloud.y = Math.random() * 150 + 30;
+        }
+    });
+
+    // 多层山峦
+    drawLayer("#555", 150, 0.002, 80);
+    drawLayer("#888", 100, 0.003, 50);
+    drawLayer("#bbb", 60, 0.004, 30);
+
+    t += 0.01;
+    requestAnimationFrame(drawMountains);
+}
+
+function drawLayer(color, baseHeight, speed, amplitude) {
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height);
+
+    for (let x = 0; x <= canvas.width; x += 10) {
+        let y = canvas.height - baseHeight
+            - Math.sin((x * 0.01) + (t * speed * 200)) * amplitude;
+        ctx.lineTo(x, y);
+    }
+
+    ctx.lineTo(canvas.width, canvas.height);
+    ctx.closePath();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.stroke();
+}
+
+drawMountains();
 
 // Call the function to set the location when the page loads
 window.onload = setLocation;

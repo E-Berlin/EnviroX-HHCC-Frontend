@@ -9,15 +9,36 @@
 </head>
 
 <body>
+    <!-- Canvas 绘制背景 -->
+    <canvas id="mountain-canvas"></canvas>
+
     <!-- 卡片容器 -->
     <div class="card-container">
         <h1>EnviroX</h1> <!-- 主标题 -->
         <h2>Current Environment State</h2> <!-- 副标题 -->
+        <div id="location">Location: </div>
+        <!-- AI 或 API 输出文本，支持换行和高亮 -->
 
         <!-- 输出结果容器 -->
         <div id="reply-container">
-            <div id="reply">Fetching environmental data...</div>
+            <!-- <div id="reply">Fetching environmental data...</div> -->
             <!-- AI 或 API 输出文本，支持换行和高亮 -->
+
+            <div class="tab-buttons">
+                <button onclick="openTab('trend', event)" class="active">Critical Trend</button>
+                <button onclick="openTab('anomaly', event)">Anomaly Flag</button>
+                <button onclick="openTab('source', event)">Source Hypothesis</button>
+                <button onclick="openTab('action', event)">Action Priority</button>
+                <!-- 4 个选项卡按钮 -->
+            </div>
+
+            <div id="trend" class="tab-content active">Critical trend loading...</div>
+
+            <div id="anomaly" class="tab-content">Anomaly flag loading...</div>
+
+            <div id="source" class="tab-content">Source Hypothesis loading...</div>
+
+            <div id="action" class="tab-content">Action Priority loading...</div>
         </div>
 
         <!-- 返回按钮 -->

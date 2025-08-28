@@ -5,51 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EnviroX</title>
-    <!-- 引入外部 CSS -->
+    <!-- 把外部的 CSS 文件引入进来 -->
     <link rel="stylesheet" href="Page_1.css">
-    <style>
-        body {
-            background-color: #E8E4D1;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* 背景 Canvas */
-        #mountain-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-
-        .card-container {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            padding: 60px 20px;
-            color: #1A724E;
-        }
-
-        footer {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            margin: 20px;
-            font-size: 14px;
-            color: #333;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- 背景（山 + 云） -->
+    <!-- Canvas 绘制背景 -->
     <canvas id="mountain-canvas"></canvas>
 
     <div class="card-container">
@@ -66,85 +27,8 @@
 
     <footer>Protecting the planet, one step at a time.</footer>
 
-    <!-- 背景动画脚本（山 + 云） -->
-    <script>
-        const canvas = document.getElementById("mountain-canvas");
-        const ctx = canvas.getContext("2d");
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener("resize", resizeCanvas);
-        resizeCanvas();
-
-        let t = 0;
-
-        // 初始化云
-        const clouds = [];
-        for (let i = 0; i < 5; i++) {
-            clouds.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * 150 + 30,
-                speed: Math.random() * 0.3 + 0.2,
-                size: Math.random() * 40 + 40
-            });
-        }
-
-        function drawCloud(cloud) {
-            ctx.beginPath();
-            ctx.fillStyle = "rgba(255,255,255,0.8)";
-            for (let i = 0; i < 5; i++) {
-                let offsetX = Math.cos(i) * cloud.size * 0.6;
-                let offsetY = Math.sin(i) * cloud.size * 0.2;
-                ctx.ellipse(cloud.x + offsetX, cloud.y + offsetY, cloud.size, cloud.size * 0.6, 0, 0, Math.PI * 2);
-            }
-            ctx.fill();
-        }
-
-        function drawMountains() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // 云
-            clouds.forEach(cloud => {
-                drawCloud(cloud);
-                cloud.x += cloud.speed;
-                if (cloud.x - cloud.size > canvas.width) {
-                    cloud.x = -cloud.size;
-                    cloud.y = Math.random() * 150 + 30;
-                }
-            });
-
-            // 山
-            drawLayer("#555", 150, 0.002, 80);
-            drawLayer("#888", 100, 0.003, 50);
-            drawLayer("#bbb", 60, 0.004, 30);
-
-            t += 0.01;
-            requestAnimationFrame(drawMountains);
-        }
-
-        function drawLayer(color, baseHeight, speed, amplitude) {
-            ctx.beginPath();
-            ctx.moveTo(0, canvas.height);
-
-            for (let x = 0; x <= canvas.width; x += 10) {
-                let y = canvas.height - baseHeight
-                    - Math.sin((x * 0.01) + (t * speed * 200)) * amplitude;
-                ctx.lineTo(x, y);
-            }
-
-            ctx.lineTo(canvas.width, canvas.height);
-            ctx.closePath();
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 2;
-            ctx.stroke();
-        }
-
-        drawMountains();
-    </script>
-
-    <!-- 你的外部 JS -->
+    <!-- External JavaScript -->
     <script src="Page_1.js"></script>
 </body>
 
