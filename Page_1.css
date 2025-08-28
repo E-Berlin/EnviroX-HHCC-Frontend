@@ -1,46 +1,143 @@
 /* General body styling */
 body {
     font-family: 'Arial', sans-serif;
+    /* 字体为 Arial，后备 sans-serif */
     margin: 0;
+    /* 清除默认外边距 */
     padding: 0;
-    background: linear-gradient(to bottom, #2E7D32, #A5D6A7);
-    /* Green gradient */
-    color: #FFFFFF;
-    text-align: center;
+    /* 清除默认内边距 */
+    background-color: #f5f5f5;
+    /* 浅灰背景 */
+    color: #111111;
+    /* 文字颜色深黑 */
+    display: flex;
+    /* 使用弹性布局 */
+    flex-direction: column;
+    /* 纵向排列子元素 */
+    justify-content: center;
+    /* 垂直居中 */
+    align-items: center;
+    /* 水平居中 */
+    min-height: 100vh;
+    /* 高度至少填满整个屏幕 */
 }
 
-/* Header styling */
+/* Card container for content */
+.card-container {
+    background-color: #ffffff;
+    /* 白色背景 */
+    padding: 40px 30px;
+    /* 内边距，上下40px，左右30px */
+    border-radius: 15px;
+    /* 圆角边框 */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    /* 阴影 */
+    text-align: left;
+    /* 文本居中 */
+    max-width: 450px;
+    /* 最大宽度 */
+    width: 90%;
+    /* 宽度为容器的90% */
+}
+
+/* 主标题样式 */
 h1 {
     font-size: 3rem;
-    margin-top: 50px;
-    text-shadow: 2px 2px 4px #000000;
+    /* 字号 */
+    margin-top: 0;
+    /* 顶部间距 */
+    margin-bottom: 15px;
+    /* 底部间距 */
+    font-weight: bold;
+    /* 加粗 */
+    color: #111111;
+    /* 黑色文字 */
+    font-weight: bold;
+    /* 字体加粗 */
 }
 
+/* 副标题样式 */
 h2 {
     font-size: 1.5rem;
+    /* 字号 */
     margin-bottom: 30px;
-    text-shadow: 1px 1px 3px #000000;
+    /* 底部间距 */
+    color: #333333;
+    /* 深灰文字 */
 }
 
-/* Button styling */
-button {
-    background-color: #388E3C;
-    /* Dark green */
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
+/* 输入框容器 */
+.data-container {
+    margin-bottom: 25px;
+    /* 底部外边距 */
+    text-align: left;
+    /* 标签和输入框左对齐 */
+}
+
+/* 标签样式 */
+.data-container label {
+    display: block;
+    /* 块级元素 */
+    margin-bottom: 5px;
+    /* 底部间距 */
+    font-weight: bold;
+    /* 加粗 */
+    color: #111111;
+    /* 黑色文字 */
+}
+
+/* 输入框样式 */
+.data-container input {
+    width: 100%;
+    /* 宽度填满父容器 */
+    height: 40px;
+    /* 可选：增加输入框高度，让整体更协调 */
+    padding-left: 10px;
+    /* 左边距 10px，让文字不紧贴边框 */
     border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    /* 圆角 */
+    border: 1.4px solid #8a8a8a;
+    /* 灰色边框 */
+    outline: none;
+    /* 去掉默认轮廓 */
+    font-size: 1rem;
+    /* 字号 */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* 内阴影 */
+    background-color: #f5f5f5;
+    /* 白色背景 */
 }
 
+/* 按钮样式 */
+button {
+    background-color: #111111;
+    /* 黑色背景 */
+    color: #ffffff;
+    /* 白色文字 */
+    border: none;
+    /* 去掉边框 */
+    padding: 15px 30px;
+    /* 内边距 */
+    font-size: 1rem;
+    /* 字号 */
+    border-radius: 8px;
+    /* 圆角 */
+    cursor: pointer;
+    /* 鼠标悬停显示手型 */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    /* 过渡动画 */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    /* 阴影 */
+}
+
+/* 鼠标悬停按钮样式 */
 button:hover {
-    background-color: #2E7D32;
-    /* Slightly darker green */
+    background-color: #333333;
+    /* 深灰背景 */
     transform: scale(1.05);
-    /* Slight zoom effect */
+    /* 放大 */
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15);
+    /* 阴影加重 */
 }
 
 /* Add some spacing */
@@ -52,10 +149,14 @@ body {
     height: 100vh;
 }
 
-/* Footer styling */
+/* 页脚样式 */
 footer {
-    position: absolute;
-    bottom: 10px;
     font-size: 0.9rem;
-    color: #E8F5E9;
+    /* 字号稍小 */
+    color: #666666;
+    /* 浅灰文字 */
+    margin-top: 30px;
+    /* 上间距 */
+    text-align: center;
+    /* 居中 */
 }

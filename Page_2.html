@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN"> <!-- 网页语言为中文 -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EnviroX - Current Environment State</title>
-    <!-- 把外部的 CSS 文件引入进来 -->
-    <link rel="stylesheet" href="Page_2.css">
+    <meta charset="UTF-8"> <!-- 字符编码 UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 响应式布局 -->
+    <title>EnviroX - Current Environment State</title> <!-- 网页标题 -->
+    <link rel="stylesheet" href="Page_2.css"> <!-- 引入 CSS 文件 -->
 </head>
 
 <body>
-    <h1>EnviroX</h1>
-    <h2>Current Environment State</h2>
+    <!-- 卡片容器 -->
+    <div class="card-container">
+        <h1>EnviroX</h1> <!-- 主标题 -->
+        <h2>Current Environment State</h2> <!-- 副标题 -->
 
-    <!--<div class="data-container">
-        <p>Location: <span id="location">Determining location...</span></p>
-    </div>-->
+        <!-- 输出结果容器 -->
+        <div id="reply-container">
+            <div id="reply">Fetching environmental data...</div>
+            <!-- AI 或 API 输出文本，支持换行和高亮 -->
+        </div>
 
-    <!-- p id="enviro-data">Fetching environmental data...</p-->
-    <div id="reply-container">
-        <div id="reply">Fetching environmental data...</div>
+        <!-- 返回按钮 -->
+        <button onclick="window.location.href='index.html'">Go Back</button>
+        <!-- 点击跳回首页 -->
     </div>
 
-    <button onclick="window.location.href='index.html'">Go Back</button>
-    <footer>Every action counts towards a greener future.</footer>
+    <footer>Every action counts towards a greener future.</footer> <!-- 页脚 -->
 
-
-    <!-- External JavaScript -->
-    <script src="Page_2.js"></script>
+    <script src="Page_2.js"></script> <!-- 引入 JS 文件 -->
 </body>
-
 
 </html>

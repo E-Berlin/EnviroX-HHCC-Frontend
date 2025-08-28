@@ -1,96 +1,160 @@
 /* General body styling */
 body {
     font-family: 'Arial', sans-serif;
+    /* 字体为 Arial，后备 sans-serif */
     margin: 0;
+    /* 清除默认外边距 */
     padding: 0;
-    background: linear-gradient(to bottom, #2E7D32, #A5D6A7);
-    /* Green gradient */
-    color: #FFFFFF;
-    text-align: center;
+    /* 清除默认内边距 */
+    background-color: #f5f5f5;
+    /* 浅灰背景 */
+    color: #111111;
+    /* 文字颜色深黑 */
+    display: flex;
+    /* 使用弹性布局 */
+    flex-direction: column;
+    /* 纵向排列子元素 */
+    justify-content: center;
+    /* 垂直居中 */
+    align-items: center;
+    /* 水平居中 */
+    min-height: 100vh;
+    /* 高度至少填满整个屏幕 */
 }
 
-/* Header styling */
+/* 卡片容器 */
+.card-container {
+    background-color: #ffffff;
+    /* 白色背景 */
+    padding: 40px 30px;
+    /* 内边距 */
+    border-radius: 12px;
+    /* 圆角 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    /* 阴影效果 */
+    text-align: left;
+    /* 文本左对齐 */
+    max-width: 800px;
+    /* 最大宽度 */
+    width: 90%;
+    /* 宽度占屏幕90% */
+}
+
+/* 主标题样式 */
 h1 {
     font-size: 3rem;
-    margin-top: 50px;
-    text-shadow: 2px 2px 4px #000000;
+    /* 字号 */
+    margin-top: 0;
+    /* 顶部间距 */
+    margin-bottom: 15px;
+    /* 底部间距 */
+    font-weight: bold;
+    /* 加粗 */
+    color: #111111;
+    /* 黑色文字 */
+    font-weight: bold;
+    /* 字体加粗 */
 }
 
+/* 副标题样式 */
 h2 {
     font-size: 1.5rem;
+    /* 字号 */
     margin-bottom: 30px;
-    text-shadow: 1px 1px 3px #000000;
+    /* 底部间距 */
+    color: #333333;
+    /* 深灰文字 */
 }
 
-/* Button styling */
+/* 按钮样式 */
 button {
-    background-color: #388E3C;
-    /* Dark green */
-    color: white;
+    background-color: #111111;
+    /* 黑色背景 */
+    color: #ffffff;
+    /* 白色文字 */
     border: none;
+    /* 去边框 */
     padding: 15px 30px;
+    /* 内边距 */
     font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-button:hover {
-    background-color: #2E7D32;
-    /* Slightly darker green */
-    transform: scale(1.05);
-    /* Slight zoom effect */
-}
-
-/* Add some spacing */
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-/* Footer styling */
-footer {
-    position: absolute;
-    bottom: 10px;
-    font-size: 0.9rem;
-    color: #E8F5E9;
-}
-
-#reply-container {
-    max-width: 800px;
-    /* 宽度上限，可调 */
-    margin: 20px auto;
-    /* 上下间距 + 居中容器 */
-    padding: 10px 20px;
-    /* 内边距，避免文字贴边 */
-    background-color: #ffffff;
-    /* 可选：浅背景更舒服 */
+    /* 字号 */
     border-radius: 8px;
     /* 圆角 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* 阴影效果 */
+    cursor: pointer;
+    /* 鼠标手型 */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    /* 阴影 */
+    margin-top: 20px;
+    /* 与输出框间距 */
 }
 
+/* 鼠标悬停按钮 */
+button:hover {
+    background-color: #333333;
+    /* 深灰背景 */
+    transform: scale(1.05);
+    /* 放大 */
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15);
+    /* 阴影增强 */
+}
+
+/* 页脚 */
+footer {
+    font-size: 0.9rem;
+    /* 略小字号 */
+    color: #666666;
+    /* 浅灰文字 */
+    margin-top: 30px;
+    /* 上间距 */
+    text-align: center;
+    /* 居中 */
+}
+
+/* 输出文本容器 */
+#reply-container {
+    max-width: 100%;
+    /* 宽度自适应 */
+    margin: 20px auto;
+    /* 上下间距 + 居中 */
+    padding: 20px;
+    /* 内边距 */
+    background-color: #f5f5f5;
+    /* 白色背景 */
+    border-radius: 10px;
+    /* 圆角 */
+    border: 2px solid #8a8a8a;
+    /* 灰色边框 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    /* 轻微阴影 */
+}
+
+/* 输出文本内容 */
 #reply {
     text-align: left;
+    /* 左对齐 */
     white-space: pre-wrap;
     /* 保留换行 */
     font-family: "Arial", sans-serif;
-    color: #1f5223;
-    font-size: 16px;
+    /* 字体 */
+    color: #262626;
+    /* 深灰文字 */
+    font-size: 18px;
+    /* 字号 */
     line-height: 1.6;
-    text-shadow: 0.2px 0.2px 0.2px #888;
+    /* 行高，舒适阅读 */
     word-wrap: break-word;
-    /* 防止长单词撑开容器 */
+    /* 防止长词撑开 */
+    margin: 0;
+    /* 外边距清零 */
 }
 
-/* 特定关键词样式示例 */
+/* 高亮 / 特定关键词 */
 .highlight {
     font-weight: bold;
-    color: #1f3223;
-    text-shadow: 0.5px 0.5px 0.5px #888;
+    /* 加粗 */
+    color: #111111;
+    /* 黑色 */
+    text-shadow: 0.3px 0.3px 0.3px #bbb;
+    /* 微阴影增加立体感 */
 }
