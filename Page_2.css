@@ -1,0 +1,96 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #2E7D32, #A5D6A7);
+    /* Green gradient */
+    color: #FFFFFF;
+    text-align: center;
+}
+
+/* Header styling */
+h1 {
+    font-size: 3rem;
+    margin-top: 50px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px #000000;
+}
+
+/* Button styling */
+button {
+    background-color: #388E3C;
+    /* Dark green */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #2E7D32;
+    /* Slightly darker green */
+    transform: scale(1.05);
+    /* Slight zoom effect */
+}
+
+/* Add some spacing */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Footer styling */
+footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 0.9rem;
+    color: #E8F5E9;
+}
+
+#reply-container {
+    max-width: 800px;
+    /* 宽度上限，可调 */
+    margin: 20px auto;
+    /* 上下间距 + 居中容器 */
+    padding: 10px 20px;
+    /* 内边距，避免文字贴边 */
+    background-color: #ffffff;
+    /* 可选：浅背景更舒服 */
+    border-radius: 8px;
+    /* 圆角 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 阴影效果 */
+}
+
+#reply {
+    text-align: left;
+    white-space: pre-wrap;
+    /* 保留换行 */
+    font-family: "Arial", sans-serif;
+    color: #1f5223;
+    font-size: 16px;
+    line-height: 1.6;
+    text-shadow: 0.2px 0.2px 0.2px #888;
+    word-wrap: break-word;
+    /* 防止长单词撑开容器 */
+}
+
+/* 特定关键词样式示例 */
+.highlight {
+    font-weight: bold;
+    color: #1f3223;
+    text-shadow: 0.5px 0.5px 0.5px #888;
+}
